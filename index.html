@@ -264,20 +264,21 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p style="font-size: 125%">
-                        Prompt-based learning has emerged as a successful paradigm in natural language processing, where
-                        a single general-purpose language model can be instructed to perform any task specified by input
-                        prompts. Yet task specification in robotics comes in various forms, such as imitating one-shot
-                        demonstrations, following language instructions, and reaching visual goals. They are often
-                        considered different tasks and tackled by specialized models. We show that a wide spectrum of
-                        robot manipulation tasks can be expressed with <i>multimodal prompts</i>, interleaving textual
-                        and visual tokens. Accordingly, we develop a new simulation benchmark that consists of thousands
-                        of procedurally-generated tabletop tasks with multimodal prompts, 600K+ expert trajectories for
-                        imitation learning, and a four-level evaluation protocol for systematic generalization. We
-                        design a transformer-based robot agent, VIMA, that processes these prompts and outputs motor
-                        actions autoregressively. VIMA features a recipe that achieves strong model scalability and data
-                        efficiency. It outperforms alternative designs in the hardest zero-shot generalization setting
-                        by up to 2.9x task success rate given the same training data. With 10x less training data, VIMA
-                        still performs 2.7x better than the best competing variant.
+                    Despite the great development of multirobot technologies, efficiently and 
+                    collaboratively exploring an unknown environment is still a big challenge. 
+                    In this paper, we propose AIM-Mapping, a Asymmetric InforMation Enhanced Mapping
+                    framework. The framework fully utilizes the privilege information in the training
+                    process to help construct the environment representation as well as the supervised 
+                    signal in an asymmetric actor-critic training framework.
+                    Specifically, privilege information is used to evaluate the exploration performance 
+                    through an asymmetric feature representation module and a mutual information evaluation
+                    module. The decision-making network uses the trained feature encoder to extract structure 
+                    information from the environment and combines it with a topological map constructed based 
+                    on geometric distance. Utilizing this kind of topological map representation, we employ 
+                    topological graph matching to assign corresponding boundary points to each robot as
+                    long-term goal points. We conduct experiments in real-world-like scenarios using the 
+                    Gibson simulation environments. It validates that the proposed method, when compared
+                    to existing methods, achieves great performance improvement.
                     </p>
                 </div>
             </div>
