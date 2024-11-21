@@ -7,28 +7,22 @@
 
     <script>
         var task_map = {
-            "simple-object-manipulation": "simple_object_manipulation",
-            "visual-goal-reaching": "visual_goal_reaching",
-            "novel-concept-grounding": "novel_concept_grounding",
-            "one-shot-video-imitation": "one_shot_video_imitation",
-            "visual-constraint-satisfaction": "visual_constraint_satisfaction",
-            "visual-reasoning": "visual_reasoning"
+            "simple-object-manipulation": "large",
+            "visual-goal-reaching": "midmid",
+            "novel-concept-grounding": "small",
         };
 
         function updateDemoVideo(category) {
             // var demo = document.getElementById("single-menu-demos").value;
             var task = document.getElementById(category + "-menu-tasks").value;
-            var inst = document.getElementById(category + "-menu-instances").value;
 
-            console.log(task_map[category], task, inst)
+            console.log(task_map[category], task)
 
             var video = document.getElementById(category + "-single-task-video");
             video.src = "assets/videos/demos/" +
                 task_map[category] +
                 "/" +
                 task +
-                "/" +
-                inst +
                 ".mp4";
             video.playbackRate = 2.0;
             video.play();
