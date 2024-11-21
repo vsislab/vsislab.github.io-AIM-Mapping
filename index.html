@@ -7,22 +7,28 @@
 
     <script>
         var task_map = {
-            "simple-object-manipulation": "large",
-            "visual-goal-reaching": "midmid",
-            "novel-concept-grounding": "small",
+            "simple-object-manipulation": "simple_object_manipulation",
+            "visual-goal-reaching": "visual_goal_reaching",
+            "novel-concept-grounding": "novel_concept_grounding",
+            "one-shot-video-imitation": "one_shot_video_imitation",
+            "visual-constraint-satisfaction": "visual_constraint_satisfaction",
+            "visual-reasoning": "visual_reasoning"
         };
 
         function updateDemoVideo(category) {
             // var demo = document.getElementById("single-menu-demos").value;
             var task = document.getElementById(category + "-menu-tasks").value;
+            var inst = document.getElementById(category + "-menu-instances").value;
 
-            console.log(task_map[category], task)
+            console.log(task_map[category], task, inst)
 
             var video = document.getElementById(category + "-single-task-video");
             video.src = "assets/videos/demos/" +
                 task_map[category] +
                 "/" +
                 task +
+                "/" +
+                inst +
                 ".mp4";
             video.playbackRate = 2.0;
             video.play();
@@ -49,9 +55,7 @@
 </head>
 <body>
 
-<video width="640" height="360" controls>
-  <source src="assets/videos/demos/large2.mp4" type="video/mp4">
-</video>
+
 <section class="hero">
     <div class="hero-body">
         <div class="container is-max-desktop">
@@ -166,74 +170,74 @@
                 <div class="item item-sweep_without_exceeding">
                     <video poster="" id="sweep_without_exceeding" autoplay controls muted loop height="100%"
                            playbackRate=2.0>
-                        <source src="assets/videos/demos/large2.mp4"
+                        <source src="assets/videos/demos/visual_constraint_satisfaction/sweep_without_exceeding/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-sweep_without_touching">
                     <video poster="" id="sweep_without_touching" autoplay controls muted loop height="100%"
                            playbackRate=2.0>
-                        <source src="assets/videos/demos/midmid/mp3d-h-4.mp4"
+                        <source src="assets/videos/demos/visual_goal_reaching/rearrange_then_restore/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-rotate">
                     <video poster="" id="rotate" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/small/mp3d-a-4.mp4"
+                        <source src="assets/videos/demos/one_shot_video_imitation/follow_motion/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-scene_understanding">
                     <video poster="" id="scene_understanding" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/large/mp3d-a-2.mp4"
+                        <source src="assets/videos/demos/novel_concept_grounding/twist/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-simple_manipulation">
                     <video poster="" id="simple_manipulation" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/midmid/mp3d-i-2.mp4"
+                        <source src="assets/videos/demos/visual_reasoning/manipulate_old_neighbor/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-novel_adj">
                     <video poster="" id="novel_adj" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/small/mp3d-j-3.mp4"
+                        <source src="assets/videos/demos/one_shot_video_imitation/follow_order/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-novel_adj_and_noun">
                     <video poster="" id="novel_adj_and_noun" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/large/mp3d-b-3.mp4"
+                        <source src="assets/videos/demos/simple_object_manipulation/scene_understanding/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-novel_noun">
                     <video poster="" id="novel_noun" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/midmid/mp3d-k-2.mp4"
+                        <source src="assets/videos/demos/visual_constraint_satisfaction/sweep_without_touching/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-twist">
                     <video poster="" id="twist" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/small/mp3d-k-3.mp4"
+                        <source src="assets/videos/demos/novel_concept_grounding/novel_adj/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-follow_motion">
                     <video poster="" id="follow_motion" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/large/mp3d-e-4.mp4"
+                        <source src="assets/videos/demos/simple_object_manipulation/simple_manipulation/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-follow_order">
                     <video poster="" id="follow_order" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/midmid/mp3d-k-4.mp4"
+                        <source src="assets/videos/demos/visual_goal_reaching/rearrange/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
                 <div class="item item-rearrange">
                     <video poster="" id="rearrange" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/small/mp3d-l-2.mp4"
+                        <source src="assets/videos/demos/simple_object_manipulation/rotate/1.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
@@ -325,7 +329,7 @@
                 <div class="row is-full-width">
                     <h2 class="title is-3"><span class="dvima">VIMA: Visuomotor Attention Agent</span></h2>
                     <video poster="" autoplay controls muted loop height="100%">
-                        <source src="assets/videos/demos/large2.mp4"
+                        <source src="assets/videos/vima_arch_animation.mp4"
                                 type="video/mp4">
                     </video>
                     <br>
