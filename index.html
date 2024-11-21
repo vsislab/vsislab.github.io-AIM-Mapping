@@ -1,80 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Asymmetric Information Enhanced Mapping Framework for Multirobot Exploration based on Deep Reinforcement Learning</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VIMA | General Robot Manipulation with Multimodal Prompts</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+    <script>
+        var task_map = {
+            "simple-object-manipulation": "simple_object_manipulation",
+            "visual-goal-reaching": "visual_goal_reaching",
+            "novel-concept-grounding": "novel_concept_grounding",
+            "one-shot-video-imitation": "one_shot_video_imitation",
+            "visual-constraint-satisfaction": "visual_constraint_satisfaction",
+            "visual-reasoning": "visual_reasoning"
+        };
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+        function updateDemoVideo(category) {
+            // var demo = document.getElementById("single-menu-demos").value;
+            var task = document.getElementById(category + "-menu-tasks").value;
+            var inst = document.getElementById(category + "-menu-instances").value;
 
-    gtag('js', new Date());
+            console.log(task_map[category], task, inst)
 
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+            var video = document.getElementById(category + "-single-task-video");
+            video.src = "assets/videos/demos/" +
+                task_map[category] +
+                "/" +
+                task +
+                "/" +
+                inst +
+                ".mp4";
+            video.playbackRate = 2.0;
+            video.play();
+        }
+    </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 </head>
 <body>
 
 
 <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Asymmetric Information Enhanced Mapping Framework for Multirobot Exploration based on Deep Reinforcement Learning</h1>
-          <div class="is-size-5 publication-authors">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">VIMA: General Robot Manipulation with Multimodal
+                        Prompts</h1>
+                    <h3 class="title is-4 conference-authors"><a target="_blank" href="https://icml.cc/">ICML 2023</a>
+                    </h3>
+                    <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://faculty.sdu.edu.cn/jycheng">Jiyu Cheng</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://Junhui Fan.com">Junhui Fan</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://baike.baidu.com/item/%E6%9D%8E%E6%99%93%E7%A3%8A/16522025">Xiaolei Li</a><sup>1</sup>,
+                <a target="_blank" href="https://yunfanj.com/">Yunfan&#160;Jiang</a><sup>1</sup>,
+                <a target="_blank" href="http://web.stanford.edu/~agrim/">Agrim&#160;Gupta</a><sup>1&dagger;</sup>,
+                <a target="_blank"
+                   href="https://zcczhang.github.io/">Zichen&#160;"Charles"&#160;Zhang</a><sup>2&dagger;</sup>,
+                <a target="_blank" href="https://guanzhi.me/">Guanzhi&#160;Wang</a><sup>3 4&dagger;</sup>,
+                <a target="_blank" href="http://group.iiis.tsinghua.edu.cn/~milab/person-douyongqiang.html">Yongqiang&#160;Dou</a><sup>5</sup>,
+                <a target="_blank"
+                   href="https://www.linkedin.com/in/yanjun-anthony-chen/">Yanjun&#160;Chen</a><sup>1</sup>,
+                <br>
+                <a target="_blank" href="https://profiles.stanford.edu/fei-fei-li">Li&#160;Fei-Fei</a><sup>1</sup>,
+                <a target="_blank" href="http://tensorlab.cms.caltech.edu/users/anima/">Anima&#160;Anandkumar</a><sup>3 4</sup>,
+                <a target="_blank" href="https://www.cs.utexas.edu/~yukez/">Yuke&#160;Zhu</a><sup>3 6&#8225;</sup>,
+                <a target="_blank" href="https://jimfan.me/">Linxi&#160;"Jim"&#160;Fan</a><sup>3&#8225;</sup>
             </span>
-            <span class="author-block">
-              <a href="https://profiles.cardiff.ac.uk/staff/rosinpl">Paul L. Rosin</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://Wei Zhang.com">Wei Zhang</a><sup>1</sup>,
-            </span>
-          </div>
+                    </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Shandong University,</span>
-            <span class="author-block"><sup>2</sup>Cardiff University</span>
-          </div>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>Stanford; </span>
+                        <span class="author-block"><sup>2</sup>Macalester College, now at Allen Institute for AI; </span>
+                        <span class="author-block"><sup>3</sup>NVIDIA; </span>
+                        <span class="author-block"><sup>4</sup>Caltech; </span>
+                        <span class="author-block"><sup>5</sup>Tsinghua; </span>
+                        <span class="author-block"><sup>6</sup>UT Austin</span>
+                    </div>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2404.18089"
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">Work done during the first author's internship at NVIDIA</span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>&dagger;</sup>Equal Contribution</span>
+                        <span class="author-block"><sup>&#8225;</sup>Equal Advising </span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- TODO PDF Link. -->
+                            <span class="link-block">
+                <a target="_blank" href="https://arxiv.org/abs/2210.03094"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -82,343 +113,590 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.yoube.com/"
+
+                            <span class="link-block">
+                <a target="_blank" href="assets/vima_paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-youtube"></i>
+                      <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Video</span>
+                  <span>PDF</span>
                 </a>
               </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/vsislab/AIM-Mapping"
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                <a target="_blank" href="https://github.com/vimalabs/VIMA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://niessner.github.io/Matterport/"
+                </a>
+                <a target="_blank" href="https://github.com/vimalabs/VIMA#pretrained-models"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="far fa-images"></i>
+                      <i class="fa fa-network-wired"></i>
                   </span>
-                  <span>Data</span>
-                  </a>
+                  <span>Models</span>
+                </a>
+                <a target="_blank" href="https://github.com/vimalabs/VimaBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-robot"></i>
+                  </span>
+                  <span>Benchmark</span>
+                </a>
+                <a target="_blank" href="https://huggingface.co/datasets/VIMA/VIMA-Data"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
-
 
 <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Despite the great development of multirobot technologies, efficiently and collaboratively 
-            exploring an unknown environment is still a big challenge. In this paper, we propose AIM-Mapping,
-            a Asymmetric InforMation Enhanced Mapping framework. The framework fully utilizes the privilege 
-            information in the training process to help construct the environment representation as well 
-            as the supervised signal in an asymmetric actor-critic training framework.
-          </p>
-          <p>
-            Specifically, privilege information is used to evaluate the exploration performance through an 
-            asymmetric feature representation module and a mutual information evaluation module. 
-            The decision-making network uses the trained feature encoder to extract structure information 
-            from the environment and combines it with a topological map constructed based on geometric distance.
-            Utilizing this kind of topological map representation, we employ  topological graph matching to
-            assign corresponding boundary points to each robot as long-term goal points. We conduct experiments
-            in real-world-like scenarios using the Gibson simulation environments. It validates that the proposed 
-            method, when compared to existing methods, achieves great performance improvement.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-sweep_without_exceeding">
+                    <video poster="" id="sweep_without_exceeding" autoplay controls muted loop height="100%"
+                           playbackRate=2.0>
+                        <source src="assets/videos/demos/visual_constraint_satisfaction/sweep_without_exceeding/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-sweep_without_touching">
+                    <video poster="" id="sweep_without_touching" autoplay controls muted loop height="100%"
+                           playbackRate=2.0>
+                        <source src="assets/videos/demos/visual_goal_reaching/rearrange_then_restore/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-rotate">
+                    <video poster="" id="rotate" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/one_shot_video_imitation/follow_motion/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-scene_understanding">
+                    <video poster="" id="scene_understanding" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/novel_concept_grounding/twist/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-simple_manipulation">
+                    <video poster="" id="simple_manipulation" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/visual_reasoning/manipulate_old_neighbor/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-novel_adj">
+                    <video poster="" id="novel_adj" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/one_shot_video_imitation/follow_order/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-novel_adj_and_noun">
+                    <video poster="" id="novel_adj_and_noun" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/simple_object_manipulation/scene_understanding/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-novel_noun">
+                    <video poster="" id="novel_noun" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/visual_constraint_satisfaction/sweep_without_touching/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-twist">
+                    <video poster="" id="twist" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/novel_concept_grounding/novel_adj/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-follow_motion">
+                    <video poster="" id="follow_motion" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/simple_object_manipulation/simple_manipulation/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-follow_order">
+                    <video poster="" id="follow_order" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/visual_goal_reaching/rearrange/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-rearrange">
+                    <video poster="" id="rearrange" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/simple_object_manipulation/rotate/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-manipulate_old_neighbor">
+                    <video poster="" id="manipulate_old_neighbor" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/visual_reasoning/same_color/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-pick_in_order_then_restore">
+                    <video poster="" id="pick_in_order_then_restore" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/visual_reasoning/pick_in_order_then_restore/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-same_color">
+                    <video poster="" id="same_color" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/novel_concept_grounding/novel_noun/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-rearrange_then_restore">
+                    <video poster="" id="rearrange_then_restore" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/visual_reasoning/same_profile/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-same_profile">
+                    <video poster="" id="same_profile" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/demos/novel_concept_grounding/novel_adj_and_noun/1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
         </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
     </div>
-    <!--/ Animation. -->
+</section>
 
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p style="font-size: 125%">
+                        Prompt-based learning has emerged as a successful paradigm in natural language processing, where
+                        a single general-purpose language model can be instructed to perform any task specified by input
+                        prompts. Yet task specification in robotics comes in various forms, such as imitating one-shot
+                        demonstrations, following language instructions, and reaching visual goals. They are often
+                        considered different tasks and tackled by specialized models. We show that a wide spectrum of
+                        robot manipulation tasks can be expressed with <i>multimodal prompts</i>, interleaving textual
+                        and visual tokens. Accordingly, we develop a new simulation benchmark that consists of thousands
+                        of procedurally-generated tabletop tasks with multimodal prompts, 600K+ expert trajectories for
+                        imitation learning, and a four-level evaluation protocol for systematic generalization. We
+                        design a transformer-based robot agent, VIMA, that processes these prompts and outputs motor
+                        actions autoregressively. VIMA features a recipe that achieves strong model scalability and data
+                        efficiency. It outperforms alternative designs in the hardest zero-shot generalization setting
+                        by up to 2.9x task success rate given the same training data. With 10x less training data, VIMA
+                        still performs 2.7x better than the best competing variant.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <!--/ Concurrent Work. -->
+</section>
 
-  </div>
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <img src="assets/images/pull.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                    <br>
+                    <span style="font-size: 110%"><b>Multimodal prompts for task specification.</b> We observe that many robot manipulation tasks can be expressed as <i>multimodal prompts</i> that interleave language and image/video frames. We propose VIMA, an embodied agent capable of processing mulitimodal prompts (left) and controlling a robot arm to solve the task (right).</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Model-->
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3"><span class="dvima">VIMA: Visuomotor Attention Agent</span></h2>
+                    <video poster="" autoplay controls muted loop height="100%">
+                        <source src="assets/videos/vima_arch_animation.mp4"
+                                type="video/mp4">
+                    </video>
+                    <br>
+                    <span style="font-size: 110%">
+<span style="font-weight: bold">VIMA architecture.</span> We encode the multimodal prompts with a pre-trained T5 model, and condition the robot controller on the prompt through cross-attention layers. The controller is a causal transformer decoder consisting of alternating self and cross attention layers that predicts motor commands conditioned on prompts and interaction history.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-widescreen">
+
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3"><span
+                            class="dvima">VIMA-Bench: Benchmark for Multimodal Robot Learning</span></h2>
+                    <span style="font-size: 125%">
+                        We provide 17 representative tasks with multimodal prompt templates, which can be procedurally instantiated into thousands of individual instances by various combinations of textures and tabletop objects.
+                    </span>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="columns">
+                        <!-- Simple Object Manipulation -->
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">Simple Object Manipulation</h3>
+                            <div class="select is-medium">
+                                <select id="simple-object-manipulation-menu-tasks"
+                                        onchange="updateDemoVideo('simple-object-manipulation')">
+                                    <option value="simple_manipulation" selected="selected">Visual Manipulation</option>
+                                    <option value="rotate">Rotate</option>
+                                    <option value="scene_understanding">Scene Understanding</option>
+                                </select>
+                            </div>
+                            <div class="select is-medium">
+                                <select id="simple-object-manipulation-menu-instances"
+                                        onchange="updateDemoVideo('simple-object-manipulation')">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <video id="simple-object-manipulation-single-task-video"
+                                   controls
+                                   muted
+                                   autoplay
+                                   loop
+                                   width="100%">
+                                <source src="assets/videos/demos/simple_object_manipulation/simple_manipulation/1.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- Visual Goal Reaching -->
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">Visual Goal Reaching</h3>
+                            <div class="select is-medium">
+                                <select id="visual-goal-reaching-menu-tasks"
+                                        onchange="updateDemoVideo('visual-goal-reaching')">
+                                    <option value="rearrange" selected="selected">Rearrange</option>
+                                    <option value="rearrange_then_restore">Rearrange Then Restore</option>
+                                </select>
+                            </div>
+                            <div class="select is-medium">
+                                <select id="visual-goal-reaching-menu-instances"
+                                        onchange="updateDemoVideo('visual-goal-reaching')">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <video id="visual-goal-reaching-single-task-video"
+                                   controls
+                                   muted
+                                   autoplay
+                                   loop
+                                   width="100%">
+                                <source src="assets/videos/demos/visual_goal_reaching/rearrange/1.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+
+
+                    </div>
+
+                    <br>
+                    <div class="columns">
+                        <!-- Novel Concept Grounding -->
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">Novel Concept Grounding</h3>
+                            <div class="select is-medium">
+                                <select id="novel-concept-grounding-menu-tasks"
+                                        onchange="updateDemoVideo('novel-concept-grounding')">
+                                    <option value="novel_adj_and_noun" selected="selected">Novel Adjective and Noun
+                                    </option>
+                                    <option value="novel_adj">Novel Adjective</option>
+                                    <option value="novel_noun">Novel Noun</option>
+                                    <option value="twist">Twist</option>
+                                </select>
+                            </div>
+                            <div class="select is-medium">
+                                <select id="novel-concept-grounding-menu-instances"
+                                        onchange="updateDemoVideo('novel-concept-grounding')">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <video id="novel-concept-grounding-single-task-video"
+                                   controls
+                                   muted
+                                   autoplay
+                                   loop
+                                   width="100%">
+                                <source src="assets/videos/demos/novel_concept_grounding/novel_adj_and_noun/1.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- One Shot Video Imitation -->
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">One-shot Video Imitation</h3>
+                            <div class="select is-medium">
+                                <select id="one-shot-video-imitation-menu-tasks"
+                                        onchange="updateDemoVideo('one-shot-video-imitation')">
+                                    <option value="follow_motion" selected="selected">Follow Motion</option>
+                                    <option value="follow_order">Follow Order</option>
+                                </select>
+                            </div>
+                            <div class="select is-medium">
+                                <select id="one-shot-video-imitation-menu-instances"
+                                        onchange="updateDemoVideo('one-shot-video-imitation')">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <video id="one-shot-video-imitation-single-task-video"
+                                   controls
+                                   muted
+                                   autoplay
+                                   loop
+                                   width="100%">
+                                <source src="assets/videos/demos/one_shot_video_imitation/follow_motion/1.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="columns">
+                        <!-- Visual Constraint Satisfaction -->
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">Visual Constraint Satisfaction</h3>
+                            <div class="select is-medium">
+                                <select id="visual-constraint-satisfaction-menu-tasks"
+                                        onchange="updateDemoVideo('visual-constraint-satisfaction')">
+                                    <option value="sweep_without_exceeding" selected="selected">Sweep without
+                                        Exceeding
+                                    </option>
+                                    <option value="sweep_without_touching">Sweep without Touching</option>
+                                </select>
+                            </div>
+                            <div class="select is-medium">
+                                <select id="visual-constraint-satisfaction-menu-instances"
+                                        onchange="updateDemoVideo('visual-constraint-satisfaction')">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <video id="visual-constraint-satisfaction-single-task-video"
+                                   controls
+                                   muted
+                                   autoplay
+                                   loop
+                                   playbackRate="2.0"
+                                   width="100%">
+                                <source src="assets/videos/demos/visual_constraint_satisfaction/sweep_without_exceeding/1.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- Visual Reasoning -->
+                        <div class="column has-text-left">
+                            <h3 class="title is-5">Visual Reasoning</h3>
+                            <div class="select is-medium">
+                                <select id="visual-reasoning-menu-tasks" onchange="updateDemoVideo('visual-reasoning')">
+                                    <option value="manipulate_old_neighbor" selected="selected">Manipulate Old
+                                        Neighbor
+                                    </option>
+                                    <option value="pick_in_order_then_restore">Pick in Order Then Restore</option>
+                                    <option value="same_color">Same Texture</option>
+                                    <option value="same_profile">Same Shape</option>
+                                </select>
+                            </div>
+                            <div class="select is-medium">
+                                <select id="visual-reasoning-menu-instances"
+                                        onchange="updateDemoVideo('visual-reasoning')">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <video id="visual-reasoning-single-task-video"
+                                   controls
+                                   muted
+                                   autoplay
+                                   loop
+                                   width="100%">
+                                <source src="assets/videos/demos/visual_reasoning/manipulate_old_neighbor/1.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--Experiments-->
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3"><span
+                            class="dvima">Experiments</span></h2>
+
+                    <p style="font-size: 125%">
+                        We answer three main questions during experiments:
+                    <ul style="font-size: 125%; padding-left: 5%">
+                        <li>
+                            1. What is the best recipe for building multi-task transformer-based robot agents with
+                            multimodal prompts?
+                        </li>
+                        <li>
+                            2. What are the <span style="font-weight: bold">scaling properties</span> of our approach in
+                            model capacity and data size?
+                        </li>
+                        <li>
+                            3. How do different components, such as visual tokenizers, prompt conditioning, and prompt
+                            encoding, affect robot performance?
+                        </li>
+
+                    </ul>
+                    </p>
+                    <br>
+                    <br>
+
+                    <h3 class="title is-4"><span
+                            class="dvima">Evaluation Results</span></h3>
+
+                    <img src="assets/images/scalability.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                    <br>
+                    <span style="font-size: 110%">
+                        <span style="font-weight: bold">Scaling model and data.</span> <i>Top</i>: We compare performance of different methods with model sizes ranging from 2M to 200M parameters. Across all model sizes and generalization levels, VIMA outperforms baseline variants. <i>Bottom</i>: For a fixed model size of 92M parameters we compare the effect of imitation learning dataset size with 0.1%, 1%, 10%, and full data. VIMA is extremely sample efficient and can achieve performance comparable to other methods with 10x less data.
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+
+                    <h3 class="title is-4"><span
+                            class="dvima">Ablation Studies </span></h3>
+
+                    <br>
+
+                    <img src="assets/images/ablation_input_process.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                    <br>
+                    <span style="font-size: 110%">
+                        <span style="font-weight: bold">Ablation on visual tokenizers.</span> We compare the performance of VIMA-200M model across different visual tokenizers. Our proposed object tokens outperform all methods that learn directly from raw pixels, and <i>Object Perceiver</i> that downsamples the object sequence to a fixed number of tokens.
+                    </span>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+                    <img src="assets/images/global_seq_mod.png" class="interpolation-image"
+                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                    <br>
+                    <span style="font-size: 110%">
+                        <span style="font-weight: bold">Ablation on prompt conditioning.</span> We compare our method (<i>xattn</i>: cross-attention prompt conditioning) with a vanilla transformer decoder (<i>gpt-decoder</i>) across different model sizes. Cross-attention is especially helpful in low-parameter regime and for harder generalization tasks.
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--Conclusion-->
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3"><span
+                            class="dvima">Conclusion</span></h2>
+
+                    <p style="font-size: 125%">
+                        In this work, we introduce a novel <i>multimodal</i> prompting formulation that converts diverse
+                        robot manipulation tasks into a uniform sequence modeling problem. We instantiate this
+                        formulation in VIMA-Bench, a diverse benchmark with multimodal tasks and systematic evaluation
+                        protocols for generalization. We propose VIMA, a conceptually simple transformer-based agent
+                        capable of solving tasks such as visual goal reaching, one-shot video imitation, and novel
+                        concept grounding with a single model. Through comprehensive experiments, we show that VIMA
+                        exhibits strong model scalability and zero-shot generalization. Therefore, we recommend our
+                        agent design as a solid starting point for future work.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <div class="container is-max-widescreen content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{jiang2023vima,
+  title     = {VIMA: General Robot Manipulation with Multimodal Prompts},
+  author    = {Yunfan Jiang and Agrim Gupta and Zichen Zhang and Guanzhi Wang and Yongqiang Dou and Yanjun Chen and Li Fei-Fei and Anima Anandkumar and Yuke Zhu and Linxi Fan},
+  booktitle = {Fortieth International Conference on Machine Learning},
+  year      = {2023}
 }</code></pre>
-  </div>
+    </div>
 </section>
 
-
 <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="content has-text-centered">
+                    <p>
+                        Website template borrowed from <a
+                            href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a
+                            href="https://github.com/cliport/cliport.github.io">CLIPort</a>.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </footer>
 
 </body>
