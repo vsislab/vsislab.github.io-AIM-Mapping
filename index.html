@@ -13,9 +13,9 @@
         };
 
         function updateDemoVideo(category) {
-            var task = document.getElementById(category).value;
+            var task = document.getElementById(category + "-menu-tasks").value;
             console.log(task_map[category], task)
-            var video = document.getElementById(category);
+            var video = document.getElementById(category + "-single-task-video");
             video.src = "assets/videos/demos/" +
                 task_map[category] +
                 "/" +
