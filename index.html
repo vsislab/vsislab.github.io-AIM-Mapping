@@ -14,11 +14,11 @@
 
         function updateDemoVideo(category) {
             // var demo = document.getElementById("single-menu-demos").value;
-            var task = document.getElementById(category + "-menu-tasks").value;
+            var task = document.getElementById(category).value;
 
             console.log(task_map[category], task)
 
-            var video = document.getElementById(category + "-single-task-video");
+            var video = document.getElementById(category);
             video.src = "assets/videos/demos/" +
                 task_map[category] +
                 "/" +
