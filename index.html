@@ -11,18 +11,25 @@
             margin: 0;
             padding: 0;
         }
+        .text-group {
+            display: flex; /* 使用 Flexbox 实现一行布局 */
+            justify-content: center; /* 水平居中对齐 */
+            gap: 240px; /* 每段文字之间的间距 */
+            margin-top: 15px; /* 图片和文字组之间的间距 */
+        }
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* GIF之间的间距 */
+            gap: 20px; 
             margin-top: 50px;
         }
         .gif-item {
             text-align: center;
         }
+        
         .gif-item img {
-            max-width: 100%; /* 确保图片在小屏幕时可以适应 */
+            max-width: 100%; 
             height: auto;
             display: block;
             margin: 0 auto;
@@ -61,14 +68,12 @@
                     <h1 class="title is-2 publication-title">Asymmetric Information Enhanced Mapping Framework for Multirobot Exploration based on Deep Reinforcement Learning</h1>
                     <div class="is-size-5 publication-authors">
             <span class="author-block">
-                <a target="_blank" href="https://scholar.google.com/citations?hl=zh-CN&user=RWFtiS4AAAAJ">Jiyu Cheng</a><sup>1</sup>,
+                <span class="author-block">Jiyu Cheng<sup>1</sup></span>,
                 <span class="author-block">Junhui Fan<sup>1</sup></span>,
-                <a target="_blank"
-                   href="https://ieeexplore.ieee.org/author/37087196148">Xiaolei Li</a><sup>1</sup>,
-                <a target="_blank" href="https://scholar.google.com/citations?hl=zh-CN&user=V5E7JXsAAAAJ"> Paul L. Rosin</a><sup>2</sup>,
-                <a target="_blank" href="https://ieeexplore.ieee.org/author/37279897500">Yibin Li</a><sup>1</sup>,
-                <a target="_blank"
-                   href="https://ieeexplore.ieee.org/author/37085379581">Wei Zhang</a><sup>1</sup>
+                <span class="author-block">Xiaolei Li<sup>1</sup></span>,
+                <span class="author-block">Paul L. Rosin<sup>2</sup></span>,
+                <span class="author-block">Yibin Li<sup>1</sup></span>,
+                <span class="author-block">Wei Zhang<sup>1</sup></span>
             </span>
                     </div>
 
@@ -178,9 +183,9 @@
             <div class="rows is-centered ">
                 <div class="row is-full-width">
                     <img src="assets/images/pull.png" class="interpolation-image"
-                         alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                    alt="" style="display: block; margin-left: auto; margin-right: auto; width: 80%; height: auto;" />
                     <br>
-                    <span style="font-size: 100%"><b>Asymmetric Feature Representation is used to generate the state value and the observation feature mapping. Multirobot Decision Network combines the geometric distance information and structure information to formulate the topological graph representation, and adopts graph matching to generate the corresponding goal point. Mutual Information Evaluation is utilized to facilitate the training process.</span>
+                    <span style="font-size: 125%; display: block; text-align: left;"><b>Asymmetric Feature Representation is used to generate the state value and the observation feature mapping. Multirobot Decision Network combines the geometric distance information and structure information to formulate the topological graph representation, and adopts graph matching to generate the corresponding goal point. Mutual Information Evaluation is utilized to facilitate the training process.</span>
                 </div>
             </div>
         </div>
@@ -191,7 +196,7 @@
         <div class="row is-full-width">
             <h2 class="title is-3"><span
                     class="dvima">Exploration Visualization Experiments</span></h2>
-            <span style="font-size: 125%">
+            <span style="font-size: 125%; display: block; text-align: left;">
                 The proposed method is trained on only 9 scenes and demonstrates significant generalization ability on the indoor dataset Matterport3D.
             </span>
             <body>
@@ -237,37 +242,141 @@
                         <div class="caption">'YmJkqBEsHnH'</div>
                     </div>
                 </div>
-
+                    
 
                 <div class="row is-full-width">
                     <p style="height: 100px;"></p> <!-- 空白段落 -->
-                    <h2 class="title is-3">
+                    <h2 class="title is-3"style="text-align: center;">
                         <span class="dvima">Comparison Experiment</span>
                     </h2>
-                    <span style="font-size: 125%;">
+                    <span style="font-size: 125%; display: block; text-align: left;">
                         To thoroughly validate the effectiveness of the proposed method, several high-performance baseline methods were introduced for comparison.
                     </span>
                 </div>
                 
                     <div class="row is-full-width">
                         <img src="assets/images/comparative.png" class="interpolation-image"
-                                alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                        alt="" style="display: block; margin-left: auto; margin-right: auto; width: 75%; height: auto;" />
                         <br>
                     </div>
                 <div class="container">
                     <div class="row is-full-width">
-                        <img src="assets/images/reli.png" class="interpolation-image"
-                                alt="" style="display: block; margin-left: auto; margin-right: auto"/>
-                        <br>
-                    </div>
-                    <div class="row is-full-width">
-                        <img src="assets/images/reli2.png" class="interpolation-image"
-                                alt="" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <img src="assets/images/tup.png" class="interpolation-image"
+                        alt="" style="display: block; margin-left: auto; margin-right: auto; width: 75%; height: auto;" />
                         <br>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row is-full-width">
+                        <img src="assets/images/duibi.png" class="interpolation-image"
+                        alt="" style="display: block; margin-left: auto; margin-right: auto; width: 60%; height: auto;" />
+                        <br>
+                    </div>
+                </div>
+                <div class="row is-full-width">
+                    <p style="height: 100px;"></p> <!-- 空白段落 -->
+                    <h2 class="title is-3">
+                        <span class="dvima">Ablation and Generalization Experiment</span>
+                    </h2>
+                    <span style="font-size: 125%; display: block; text-align: left;">
+                        Visualization of Ablation Experiments: We conduct a horizontal comparison of the visualized results in the same MP3D indoor scene.
+                    </span>
+                </div>
+                <div class="container">
+                    <div class="gif-item">
+                        <img src="assets\videos\demos\xiaorong\large.gif" alt="GIF 1">
+                        <div class="text-group">
+                            <div class="text-item">AIM-Mapping</div>
+                            <div class="text-item">Ablated privileged representation</div>
+                            <div class="text-item">Ablated MI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="gif-item">
+                        <img src="assets\videos\demos\xiaorong\mp3d-a-2.gif" alt="GIF 1">
+                        <div class="text-group">
+                            <div class="text-item">AIM-Mapping</div>
+                            <div class="text-item">Ablated privileged representation</div>
+                            <div class="text-item">Ablated MI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="gif-item">
+                        <img src="assets\videos\demos\xiaorong\mp3d-b-3.gif" alt="GIF 1">
+                        <div class="text-group">
+                            <div class="text-item">AIM-Mapping</div>
+                            <div class="text-item">Ablated privileged representation</div>
+                            <div class="text-item">Ablated MI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="gif-item">
+                        <img src="assets\videos\demos\xiaorong\mp3d-j-1.gif" alt="GIF 1">
+                        <div class="text-group">
+                            <div class="text-item">AIM-Mapping</div>
+                            <div class="text-item">Ablated privileged representation</div>
+                            <div class="text-item">Ablated MI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row is-full-width">
+                        <img src="assets/images/xiaorong.png" class="interpolation-image"
+                        alt="" style="display: block; margin-left: auto; margin-right: auto; width: 90%; height: auto;" />
+                        <br>
+                    </div>
+                </div>
+                <div class="column">
+                    <h2 class="title is-3">Conclusion</h2>
+                    <div class="content has-text-justified">
+                        <span style="font-size: 125%; display: block; text-align: left;">
+                            This paper studies the multirobot active mapping problem  and proposes AIM-Mapping, 
+                            which is an effective mapping framework based on deep reinforcement learning. 
+                            The framework uses an asymmetric feature representation module to encode the disparity 
+                            of observation and privilege information, and use the disparity feature as the state
+                            value of the actor-critic training framework. The mutual information between observation
+                            and privilege information will be used as the supervised information of the above framework.
+                            For decision-making, a topological representation is first constructed incorporating both
+                            structure information and geometric distance information. A graph matching mechanism is 
+                            then applied to assign the goal point to each robot. Qualitative and quantitative experiments
+                            are conducted on the public iGibson environment and the results validate the effectiveness
+                            of the proposed method. In our future work, we plan to further explore the potential of 
+                            the asymmetric information.
+                        </p>
+                    </div>
+                </div>
+                
+                <section class="section" id="BibTeX">
+                    <div class="container is-max-widescreen content">
+                        <h2 class="title">BibTeX</h2>
+                        <pre style="text-align: left;"><code>@article{zhang2024atr,
+    title={Asymmetric Information Enhanced Mapping Framework for Multirobot Exploration based on Deep Reinforcement Learning},
+    author={Cheng, Jiyu and Fan, Junhui and Li, Xiaolei and Rosin, Paul L and Li, Yibin and Zhang, Wei},
+    journal={arXiv preprint arXiv:2404.18089},
+    year={2024}
+}</code></pre>
+                    </div>
+                </section>
 
+                <footer class="footer">
+                    <div class="container">
+                        <div class="columns is-centered">
+                            <div class="column">
+                                <div class="content has-text-centered">
+                                    <p>
+                                        Website template borrowed from <a
+                                            href="https://github.com/vimalabs/vimalabs.github.io">VIMA</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </body>
         </div>
     </div>
 </section>
+</html>
